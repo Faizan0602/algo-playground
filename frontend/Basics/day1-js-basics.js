@@ -11,58 +11,65 @@
 
 // //ARRAYS (CORE)- Create a random array
 
-function generaterandomArray(size){
-    let arr =[];
-    for(let i = 0; i<size;i++){
-        let randomNumber = Math.floor(Math.random()*100);
-        arr.push(randomNumber)
+// function generaterandomArray(size){
+//     let arr =[];
+//     for(let i = 0; i<size;i++){
+//         let randomNumber = Math.floor(Math.random()*100);
+//         arr.push(randomNumber)
+//     }
+//     return arr;
+// }
+
+// let size =5;
+// let numbers = generaterandomArray(size);
+// console.log("original array :" ,numbers);
+
+
+
+// for(let i =0; i<numbers.length;i++){
+//     console.log(numbers[i]);
+// }
+// if(numbers[0]>numbers[1]){
+//     console.log("swap needed")
+
+// }
+// else{
+//     console.log("swap not needed")
+// }
+
+
+// function swap(arr, i, j) {
+//     let temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+// }
+
+function bubbleSort(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        console.log(`\nPass ${i + 1}`);
+
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            console.log("Comparing", arr[j], "and", arr[j + 1]);
+
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+
+                console.log("Swapped:", arr);
+            } else {
+                console.log("No swap:", arr);
+            }
+        }
     }
-    return arr;
+    return arr;   
 }
 
-let size =5;
-let numbers = generaterandomArray(size);
-console.log("original array :" ,numbers);
+let numbers = [5, 3, 8, 4];
+let result = bubbleSort(numbers);
 
+console.log("\nFinal Sorted Array:", result);
 
-
-for(let i =0; i<numbers.length;i++){
-    console.log(numbers[i]);
-}
-if(numbers[0]>numbers[1]){
-    console.log("swap needed")
-
-}
-else{
-    console.log("swap not needed")
-}
-
-
-function swap(arr,i,j){
-    let temp = arr[i];
-    arr[i]=arr[j];
-    arr[j]= temp;
-    console.log(arr);
-}
-
-function bubbleSort(arr){
-    let n = arr.length;
-    for(let i =0;i<n-1;i++) {
-        console.log('\npass ${i+1}');
-    }
-    for(let j =0;j<n-i-1;j++){
-        console.log("comparing " ,arr[j], "and" ,arr[j+1]);
-
-    }
-    if(arr[j]>arr[j+1]){
-        swap(arr,j,j+1);
-        console.log("swapped :" , arr);
-
-    }
-    else{
-        console.log("no swap needed :" , arr)
-    }
-}
 
 
 
