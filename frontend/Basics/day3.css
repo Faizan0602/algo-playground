@@ -17,4 +17,12 @@ body{
 
   font-weight: bold;
 }
+.compare {
+  background-color: yellow;
+}
+
+.swap {
+  background-color: red;
+  color: white;
+}
 
