@@ -1,34 +1,70 @@
-body{
-    font-family : Arial,sans-serif;
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
-#array-container{
-    display : flex;
-    gap: 10px;
-    margin-top: 20px;
+
+#array-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px 0;
+  position: relative;
 }
+
 .box {
   width: 60px;
   height: 60px;
-  border-radius: 8px;
   border: 2px solid #333;
+  border-radius: 8px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-weight: bold;
   font-size: 18px;
+  font-weight: bold;
 
-  transition: transform 0.5s ease, background-color 0.3s ease;
+  transition: transform 0.4s ease, background-color 0.3s ease;
 }
 
+/* Bubble sort */
 .compare {
-  background-color: #fde047; /* soft yellow */
+  background-color: #fde047; /* yellow */
 }
 
 .swap {
-  background-color: #ef4444;
+  background-color: #ef4444; /* red */
   color: white;
 }
 
+/* Selection sort */
+.selected {
+  background-color: #38bdf8; /* blue */
+  color: white;
+}
 
+.min {
+  background-color: #22c55e; /* green */
+  color: white;
+}
+
+.lift {
+  transform: translateY(-30px);
+}
+
+/* Arrow */
+#arrow {
+  position: absolute;
+  font-size: 24px;
+  color: #2563eb;
+  display: none;
+  pointer-events: none;
+}
+
+/* Buttons */
+.controls button {
+  padding: 10px 16px;
+  margin: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}

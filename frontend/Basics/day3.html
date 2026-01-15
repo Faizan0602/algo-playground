@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>AlgoPlayground-day3</title>
-         <link rel="stylesheet" href="day3.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Algorithm Visualizer</title>
+  <link rel="stylesheet" href="day3.css" />
+</head>
+<body>
 
-    </head>
-    <body>
-        <h2>Bubble Sort Visualisation</h2>
-        <div id = "array-container"></div>
-        <button onclick="startSort()">Start</button>
-        <button onclick="resetArray()">Reset</button>
+  <h2>Sorting Algorithm Visualizer</h2>
 
+  <div id="array-container"></div>
 
-        <script src="day3.js"></script>
+  <!-- Arrow indicator -->
+  <div id="arrow">⬇️</div>
 
-    </body>
+  <div class="controls">
+    <button onclick="startBubbleSort()">Bubble Sort</button>
+    <button onclick="startSelectionSort()">Selection Sort</button>
+    <button onclick="resetArray()">Reset</button>
+  </div>
+
+  <script src="day3.js"></script>
+</body>
 </html>
