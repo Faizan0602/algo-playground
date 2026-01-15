@@ -23,14 +23,31 @@ function renderArray(){
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+async function animateSwap(box1, box2) {
+  box1.classList.add("swap");
+  box2.classList.add("swap");
 
-    async function startSort() {
+  // move boxes
+  box1.style.transform = "translateX(70px)";
+  box2.style.transform = "translateX(-70px)";
+
+  await delay(SPEED);
+
+  // reset movement
+  box1.style.transform = "";
+  box2.style.transform = "";
+
+  box1.classList.remove("swap");
+  box2.classList.remove("swap");
+}
+
+
+   async function startSort() {
+
   for (let i = 0; i < arr.length - 1; i++) {
     for (let j = 0; j < arr.length - i - 1; j++) {
 
-      // ALWAYS get fresh boxes
       let boxes = document.getElementsByClassName("box");
-
       let box1 = boxes[j];
       let box2 = boxes[j + 1];
 
@@ -41,26 +58,28 @@ function delay(ms) {
       await delay(SPEED);
 
       if (arr[j] > arr[j + 1]) {
-        // swap in array
+
+        // animate movement FIRST
+        await animateSwap(box1, box2);
+
+        // NOW swap in array (ONLY ONCE)
         let temp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = temp;
 
-        // update UI
-        box1.textContent = arr[j];
-        box2.textContent = arr[j + 1];
-
-        box1.classList.add("swap");
-        box2.classList.add("swap");
-
-        await delay(SPEED);
+        // redraw boxes to match array
+        renderArray();
       }
 
-      // remove styles
-      box1.classList.remove("compare", "swap");
-      box2.classList.remove("compare", "swap");
+      // cleanup colors
+      box1.classList.remove("compare");
+      box2.classList.remove("compare");
     }
   }
+}
+function resetArray() {
+  arr = [2, 4, 7, 1];
+  renderArray();
 }
 
 renderArray();

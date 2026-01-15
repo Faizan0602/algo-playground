@@ -6,23 +6,29 @@ body{
     gap: 10px;
     margin-top: 20px;
 }
-.box{
-  width: 50px;
-  height: 50px;
-  border: 2px solid black;
+.box {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid #333;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-weight: bold;
+  font-size: 18px;
+
+  transition: transform 0.5s ease, background-color 0.3s ease;
 }
+
 .compare {
-  background-color: yellow;
+  background-color: #fde047; /* soft yellow */
 }
 
 .swap {
-  background-color: red;
+  background-color: #ef4444;
   color: white;
 }
+
 
