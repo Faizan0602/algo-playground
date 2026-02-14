@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Algorithm & Data Structure Visualizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">Algo Visualizer</span>
+      </div>
+      <nav class="nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Sorting</div>
+          <button class="nav-item" data-view="bubble-sort">Bubble Sort</button>
+          <button class="nav-item" data-view="selection-sort">Selection Sort</button>
+          <button class="nav-item" data-view="insertion-sort">Insertion Sort</button>
+          <button class="nav-item" data-view="merge-sort">Merge Sort</button>
+          <button class="nav-item" data-view="quick-sort">Quick Sort</button>
+          <button class="nav-item" data-view="heap-sort">Heap Sort</button>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Searching</div>
+          <button class="nav-item" data-view="linear-search">Linear Search</button>
+          <button class="nav-item" data-view="binary-search">Binary Search</button>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Data Structures</div>
+          <button class="nav-item" data-view="linked-list">Linked List</button>
+          <button class="nav-item" data-view="stack">Stack</button>
+          <button class="nav-item" data-view="queue">Queue</button>
+          <button class="nav-item" data-view="bst">Binary Search Tree</button>
+          <button class="nav-item" data-view="graph">Graph (BFS/DFS)</button>
+        </div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="llm-settings">
+          <div class="llm-row">
+            <input type="checkbox" id="llm-use-ai" title="Use AI to explain each step" />
+            <label for="llm-use-ai">Use AI explanations</label>
+          </div>
+          <div class="llm-row">
+            <input type="password" id="llm-api-key" placeholder="OpenAI API key" class="llm-input" autocomplete="off" />
+          </div>
+          <p class="llm-hint">Key used only in browser, not stored on server. Required for AI.</p>
+        </div>
+        <label class="speed-label">
+          <span>Step delay</span>
+          <span id="speed-value" class="speed-value">1200 ms</span>
+          <input type="range" id="speed-slider" min="400" max="3000" value="2200" step="100" />
+          <span class="speed-hint">Slower ← → Faster</span>
+        </label>
+        <div class="playback-controls">
+          <button type="button" id="btn-pause" class="btn-playback" title="Pause">⏸ Pause</button>
+          <button type="button" id="btn-play" class="btn-playback" title="Resume">▶ Play</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="view-header">
+        <h1 id="view-title">Algorithm Visualizer</h1>
+        <p id="view-desc" class="view-desc">Choose an algorithm or data structure from the sidebar.</p>
+      </header>
+
+      <div id="viz-area" class="viz-area">
+        <!-- Dynamic content per view -->
+      </div>
+
+      <section class="explanation-panel" aria-label="Step explanation">
+        <h3 class="explanation-title">Step-by-step explanation</h3>
+        <div id="step-explanation" class="explanation-content empty">
+          Run an algorithm to see step-by-step explanations here.
+        </div>
+      </section>
+
+      <div id="controls" class="controls">
+        <!-- Buttons injected per view -->
+      </div>
+
+      <div id="status" class="status"></div>
+    </main>
+  </div>
+
+  <script src="js/llm.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/sorting.js"></script>
+  <script src="js/searching.js"></script>
+  <script src="js/ds.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
